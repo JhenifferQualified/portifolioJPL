@@ -7,11 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="menu.css">
-
 </head>
 
- <body class="bg-gray-50">
-    <!-- Barra de navegação -->
+<body class="bg-gray-50">
     <nav class="gradient-bg text-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold">Vitrine Jheny&Lima</a>
@@ -25,7 +23,6 @@
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
-        <!-- Mobile menu -->
         <div class="md:hidden hidden bg-indigo-800 px-6 py-3" id="mobile-menu">
             <a href="#home" class="block py-2 text-white hover:bg-indigo-700 rounded px-3">Início</a>
             <a href="#designs" class="block py-2 text-white hover:bg-indigo-700 rounded px-3">Portfólio</a>
@@ -34,9 +31,10 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="gradient-bg text-white py-20">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center hero-rgb">
+    <section id="home" class="gradient-bg text-white py-20 relative">
+        <div class="hero-blur-bg absolute inset-0"></div>
+        
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center hero-rgb relative z-10 max-w-7xl">
             <div class="md:w-1/2 mb-10 md:mb-0">
                 <h1 class="text-4xl md:text-7x1 font-bold leading-tight mb-6 frase-text">Designs Pensados para Você, Peça Já!</h1>
                 <p class="text-xl mb-8">Transformando ideias em designs de impacto.</p>
@@ -53,16 +51,13 @@
         </div>
     </section>
 
-    <!-- Seção Portfólio -->
     <section id="designs" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Designs que ofereço</h2>
             
-            <!-- Carrossel -->
             <div class="relative overflow-hidden mb-12">
                 <div class="carousel-container flex overflow-x-auto space-x-6 pb-6 scrollbar-hide" id="design-carousel">
-                    <!-- Slides serão adicionados dinamicamente via JavaScript -->
-                </div>
+                    </div>
                 <button class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-lg p-3 hover:bg-gray-100 focus:outline-none z-10 ml-4">
                     <i class="fas fa-chevron-left text-indigo-600"></i>
                 </button>
@@ -71,19 +66,16 @@
                 </button>
             </div>
             
-            <!-- Grid de Designs -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="design-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="h-64 overflow-hidden">
-                      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9c13acd5-b55a-4f5e-862a-308f36aebe1f.png" alt="Design de post para redes sociais com paleta de cores vibrantes e tipografia moderna" class="w-full h-full object-cover">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9c13acd5-b55a-4f5e-862a-308f36aebe1f.png" alt="Design de post para redes sociais com paleta de cores vibrantes e tipografia moderna" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2">Post para Instagram</h3>
+                        <p class="text-gray-600">Design moderno para promoção de marca.</p>
+                    </div>
                 </div>
-                <div class="p-4">
-                  <h3 class="font-semibold text-lg mb-2">Post para Instagram</h3>
-                   <p class="text-gray-600">Design moderno para promoção de marca.</p>
-              </div>
-            </div>
-
-                
                 <div class="design-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="h-64 overflow-hidden">
                         <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8baee295-02d3-45f2-aacf-4d2953f5ec09.png" alt="Cartão de visita profissional com layout limpo e elementos gráficos sofisticados" class="w-full h-full object-cover">
@@ -93,7 +85,6 @@
                         <p class="text-gray-600">Design profissional para impressão.</p>
                     </div>
                 </div>
-                
                 <div class="design-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="h-64 overflow-hidden">
                         <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d6322365-2c1e-46cc-b58c-05379b09a4c3.png" alt="Apresentação corporativa com slides coesos e visual branding consistente" class="w-full h-full object-cover">
@@ -107,7 +98,6 @@
         </div>
     </section>
 
-    <!-- Seção Sobre -->
     <section id="about" class="py-20 bg-gray-100">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
@@ -130,7 +120,6 @@
         </div>
     </section>
 
-    <!-- Seção Suporte -->
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Suporte e Contato</h2>
@@ -213,7 +202,6 @@
         </div>
     </section>
 
-    <!-- Rodapé -->
     <footer class="gradient-bg text-white py-12">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -254,6 +242,15 @@
         </div>
     </footer>
 
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-[100]">
+      <div class="relative max-w-5xl mx-auto p-4 bg-white rounded-lg shadow-xl">
+        <button id="modal-close-btn" class="absolute top-2 right-2 text-white bg-gray-800 rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold hover:bg-gray-700 transition">
+          &times;
+        </button>
+        <img id="modal-image" src="" alt="Imagem ampliada" class="max-w-full max-h-[80vh] rounded-lg">
+      </div>
+    </div>
+    
     <script src="menu.js"></script>
 
 </body>
