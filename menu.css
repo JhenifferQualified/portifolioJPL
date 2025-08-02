@@ -9,6 +9,13 @@ body {
     background: linear-gradient(135deg, #5d3eb3 0%, #3a69a7 100%);
 }
 
+.gradient-bgbuttom{
+    background-color: #482c94;
+}
+
+.gradient-bgbuttom:hover{
+    background-color:#582fc7;
+}
 /* Efeito de fundo fosco com blur para a seção Hero */
 .hero-blur-bg {
   /* O backdrop-filter aplica o efeito no fundo do elemento */
@@ -113,7 +120,7 @@ body {
 .footer-link {
     position: relative;
 }
-    
+
 .footer-link::after {
     content: '';
     position: absolute;
@@ -122,7 +129,7 @@ body {
     bottom: 0;
     left: 0;
     background-color: white;
-    transition: width 0.3s ease;
+    transition: width 0.4s ease;
 }
     
 .footer-link:hover::after {

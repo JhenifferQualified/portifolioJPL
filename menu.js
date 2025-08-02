@@ -4,137 +4,161 @@ document.getElementById('menu-btn').addEventListener('click', function() {
     menu.classList.toggle('hidden');
 });
 
-// Lista de designs para o carrossel
-const designs = [
-    // ... (sua lista de designs permanece a mesma)
+// Unifica todos os designs em uma única lista
+const allDesigns = [
     {
-        title: "Logotipo",
-        description: "Design moderno para sua loja!",
+        title: "Identidade Visual e Logotipos",
+        description: "Profissionalize sua marca com um logo memorável.",
         imageUrl: "imagens/logotipo.jpg",
-        altText: "Logotipo moderno e colorido."
+        altText: "Logotipo moderno para marca de roupas."
     },
     {
-        title: "Adesivos Personalizados",
-        description: "Estilizados com seu toque.",
+        title: "Adesivos e Rótulos Exclusivos",
+        description: "Destaque seus produtos com um toque único de marca.",
         imageUrl: "imagens/cartazperso.jpg",
-        altText: "Adesivos personalizados para embalagens."
+        altText: "Adesivo para embalagem artesanal."
     },
     {
-        title: "Estampa de Blusas",
-        description: "Estampa personalizada do seu gosto.",
+        title: "Design para Estampas",
+        description: "Transforme suas ideias em estampas de moda únicas.",
         imageUrl: "imagens/atequeelavenha.jpg",
-        altText: "Estampas personalizadas."
+        altText: "Estampa de camiseta com frase religiosa."
     },
     {
-        title: "Planfetos Personalizados",
-        description: "Planfetos chamativos e profissionais para o seu negócio.",
+        title: "Flyers e Panfletos Profissionais",
+        description: "Artes visuais que atraem e convertem clientes.",
         imageUrl: "imagens/planfetofeijo.jpg",
-        altText: "Planfetos de promoções."
+        altText: "Flyer de feijoada com informações."
     },
     {
-        title: "Design para impressão",
-        description: "Design feito para atender suas expectativas.",
+        title: "Materiais Impressos de Alta Qualidade",
+        description: "Design profissional para todos os seus materiais impressos.",
         imageUrl: "imagens/arteimpresso.jpg",
-        altText: "Design impresso."
+        altText: "Design digital pronto para impressão."
     },
     {
-        title: "Artes para Festa",
-        description: "Design moderno e profissional para a sua festa.",
+        title: "Convites e Kits de Festa Personalizados",
+        description: "Crie uma identidade visual completa para a sua festa.",
         imageUrl: "imagens/designfesta.jpg",
-        altText: "Para festa."
+        altText: "Convite digital com tema de festa."
     },
     {
-        title: "Arte para caderno de Músicas e livros",
-        description: "Capas personalizadas.",
+        title: "Design de Capas para Livros e Cadernos",
+        description: "Capas que fazem sua obra se destacar.",
         imageUrl: "imagens/capadepastademusica.jpg",
-        altText: "Capa do caderno de música."
+        altText: "Capa de caderno com arte dourada 'Manancial'."
     },
     {
-        title: "Arte para caderno de música.",
-        description: "Para festas, redes sociais e para seu negócio.",
+        title: "Identidade Visual para Eventos",
+        description: "Designs coesos para eventos e mídias sociais.",
         imageUrl: "imagens/hinosdafesta.jpg",
-        altText: "Capa do caderno de música.'"
+        altText: "Capa de pasta de música 'Hinos da Festa'."
     },
     {
-        title: "Arte para Delivery",
-        description: "Design para engajar seu negócio.",
+        title: "Artes para Mídias Sociais e Delivery",
+        description: "Posts criativos para engajar e impulsionar vendas.",
         imageUrl: "imagens/postpao.jpg",
-        altText: "Post de pães caseiros com informações de contato e preço"
+        altText: "Post de delivery de pães."
     },
     {
-        title: "Cartão de Bem-Vindos",
-        description: "Cartão de visitas e para lembranças.",
+        title: "Cartões de Visita e Agradecimento",
+        description: "Crie conexões duradouras com cartões que impressionam.",
         imageUrl: "imagens/cartaodeVisitas.jpg",
-        altText: "Cartão personalizado para presentear."
+        altText: "Cartão de agradecimento para clientes."
     },
     {
-        title: "Post 'Pães Caseiros'",
-        description: "Design para delivery de pães artesanais",
-        imageUrl: "imagens/Pão quentinho saindo moderno marrom para post retrato do instagram (1).jpg",
-        altText: "Post de pães caseiros com informações de contato e preço"
+        title: "Mockups para Estampas de Camisas",
+        description: "Estampas feitas para elevar sua idêntidade visual.",
+        imageUrl: "imagens/Estampablusa1.jpg",
+        altText: "Mockup de camisa com estampa personalizada."
     },
     {
-        title: "Banner 'Festa dos Jovens'",
-        description: "Banner para evento religioso",
+        title: "Banners para Eventos",
+        description: "Designs marcantes para congressos e eventos memoráveis.",
         imageUrl: "imagens/Banner Festa dos Jovens (3).jpg",
-        altText: "Banner do evento 'Festa dos Jovens' com uma pessoa orando"
+        altText: "Banner para congresso com tema religioso."
+    },
+    {
+        title: "Design de Estampas Personalizadas",
+        description: "Artes exclusivas para blusas, canecas, livros e mais.",
+        imageUrl: "imagens/blusaestampa.jpg",
+        altText: "Estampa de blusa para festa de jovens."
+    },
+    {
+        title: "Conteúdo para Redes Sociais",
+        description: "Posts que engajam e fortalecem a presença digital do seu negócio.",
+        imageUrl: "imagens/cartazredessociais.jpg",
+        altText: "Post de festa para redes sociais."
     }
 ];
 
-// Inicializar carrossel
-function initCarousel() {
-    const carousel = document.getElementById('design-carousel');
+function setupModalListeners() {
     const modal = document.getElementById('image-modal');
-    const modalImage = document.getElementById('modal-image');
     const modalCloseBtn = document.getElementById('modal-close-btn');
 
-    designs.forEach(design => {
-        const slide = document.createElement('div');
-        slide.className = 'carousel-slide flex-shrink-0 w-[300px] h-[400px] bg-white rounded-lg shadow-md overflow-hidden cursor-pointer'; // Adicionado 'cursor-pointer'
-        slide.innerHTML = `
-            <div class="w-full h-2/3 flex items-center justify-center overflow-hidden p-2">
-                <img src="${design.imageUrl}" alt="${design.altText}" class="max-w-full max-h-full object-contain rounded-lg">
-            </div>
-            <div class="p-4">
-                <h3 class="font-semibold text-xl mb-2">${design.title}</h3>
-                <p class="text-gray-700 text-base">${design.description}</p>
-            </div>
-        `;
-        
-        // Adicionar o evento de clique a cada slide
-        slide.addEventListener('click', () => {
-            modalImage.src = design.imageUrl;
-            modalImage.alt = design.altText;
-            modal.classList.remove('hidden');
+    if (modal) {
+        modalCloseBtn.addEventListener('click', () => modal.classList.add('hidden'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.add('hidden');
         });
+    }
+}
 
-        carousel.appendChild(slide);
+// Função que cria um card e adiciona o evento de clique
+function createCardHTML(design, isCarousel = false) {
+    const card = document.createElement('div');
+    const cardBaseClass = 'bg-white rounded-lg shadow-md overflow-hidden cursor-pointer flex flex-col';
+    
+    if (isCarousel) {
+        card.className = `carousel-slide flex-shrink-0 w-[320px] h-[450px] ${cardBaseClass}`;
+    } else {
+        card.className = `design-card w-full h-[450px] ${cardBaseClass}`;
+    }
+
+    // Estrutura interna do card com alturas proporcionais
+    card.innerHTML = `
+        <div class="w-full h-[70%] flex items-center justify-center overflow-hidden p-2 flex-shrink-0">
+            <img src="${design.imageUrl}" alt="${design.altText}" class="max-w-full max-h-full object-contain rounded-lg">
+        </div>
+        <div class="w-full h-[30%] p-4">
+            <h3 class="font-semibold text-lg mb-2">${design.title}</h3>
+            <p class="text-gray-600">${design.description}</p>
+        </div>
+    `;
+
+    card.addEventListener('click', () => {
+        const modalImage = document.getElementById('modal-image');
+        const modal = document.getElementById('image-modal');
+        modalImage.src = design.imageUrl;
+        modalImage.alt = design.altText;
+        modal.classList.remove('hidden');
     });
 
-    // Configurar navegação do carrossel
+    return card;
+}
+function initPortfolio() {
+    const carouselContainer = document.getElementById('design-carousel');
+    const staticGridContainer = document.getElementById('static-cards-grid');
+
+    allDesigns.forEach((design, index) => {
+        if (index < 11) {
+            carouselContainer.appendChild(createCardHTML(design, true));
+        } else {
+            staticGridContainer.appendChild(createCardHTML(design));
+        }
+    });
+
     const prevBtn = document.querySelector('.carousel-prev');
     const nextBtn = document.querySelector('.carousel-next');
-
     prevBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: -300, behavior: 'smooth' });
+        carouselContainer.scrollBy({ left: -300, behavior: 'smooth' });
     });
-
     nextBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: 300, behavior: 'smooth' });
-    });
-
-    // Lógica para fechar o modal
-    modalCloseBtn.addEventListener('click', () => {
-        modal.classList.add('hidden');
-    });
-
-    // Fechar o modal ao clicar fora da imagem
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.add('hidden');
-        }
+        carouselContainer.scrollBy({ left: 300, behavior: 'smooth' });
     });
 }
 
-// Chamar a função quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', initCarousel);
+document.addEventListener('DOMContentLoaded', () => {
+    setupModalListeners();
+    initPortfolio();
+});
