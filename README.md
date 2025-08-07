@@ -28,7 +28,7 @@ Você pode visualizar o portfólio online diretamente por este link:
 Se você gostou do meu trabalho e deseja entrar em contato, sinta-se à vontade para me enviar uma mensagem!
 
 * **Email:** jheniffer.pereira.lima@gmail.com
-* **LinkedIn:** [Jheniffer](www.linkedin.com/in/jheniffer-lima-35582b25a)
+* **LinkedIn:** [Jheniffer Pereira Lima](www.linkedin.com/in/jheniffer-lima-35582b25a)
 
 ---
 
