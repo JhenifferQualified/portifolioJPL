@@ -67,6 +67,11 @@ body {
     inset: 0;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
+
 .bottom-port{
     color: #5937b6;
     background-color: rgb(243, 243, 243);
