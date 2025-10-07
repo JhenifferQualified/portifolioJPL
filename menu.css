@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-    
+
 body {
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
@@ -9,35 +9,33 @@ body {
     background: linear-gradient(135deg, #5d3eb3 0%, #3a69a7 100%);
 }
 
-.gradient-bgbuttom{
+.gradient-bgbuttom {
     background-color: #482c94;
 }
 
-.gradient-bgbuttom:hover{
-    background-color:#582fc7;
-}
-/* Efeito de fundo fosco com blur para a seção Hero */
-.hero-blur-bg {
-  /* O backdrop-filter aplica o efeito no fundo do elemento */
-  -webkit-backdrop-filter: blur(40px); /* Para compatibilidade com navegadores WebKit */
-  backdrop-filter: blur(50px);
-  
-  /* Adiciona um gradiente para o efeito ficar mais escuro e sutil */
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2), /* Escuro e semi-transparente no topo */
-    rgba(0, 0, 0, 0)
-  );
+.gradient-bgbuttom:hover {
+    background-color: #582fc7;
 }
 
-/* Gradiente Animado e Futurista para a Seção Hero */
+/* Efeito de fundo fosco com blur para a seção Hero */
+.hero-blur-bg {
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(50px);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    position: absolute;
+    inset: 0;
+}
+
+/* Gradiente Animado e Futurista para a Seção Hero - Atualizado para transparência */
 @keyframes animated-gradient {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -45,69 +43,77 @@ body {
 
 .hero-rgb {
     background: linear-gradient(-45deg,
-        rgb(5, 122, 168),
-        rgb(18, 165, 209),
-        rgb(130, 35, 173),
-        rgb(61, 82, 177)
+        rgba(5, 122, 168, 0.3),
+        rgba(18, 165, 209, 0.3),
+        rgba(130, 35, 173, 0.3),
+        rgba(61, 82, 177, 0.3)
     );
-    background-size: 400% 400%; 
-    animation: animated-gradient 15s ease infinite; 
+    background-size: 400% 400%;
+    animation: animated-gradient 15s ease infinite;
     border-radius: 50px;
-    /* Garante que o conteúdo fique acima do fundo com blur */
     position: relative;
     z-index: 10;
-}
-
-/* Fundo da seção Hero para o efeito de blur */
-.hero-blur-bg {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background: rgba(0, 0, 0, 0.2); /* Adiciona uma camada de opacidade sutil */
-    position: absolute;
-    inset: 0;
+    backdrop-filter: saturate(180%) blur(7px);
 }
 
 .text-justify {
-  text-align: justify;
+    text-align: justify;
 }
 
-
-.bottom-port{
+.bottom-port {
     color: #5937b6;
     background-color: rgb(243, 243, 243);
+    box-shadow: 0 0 24px 0 rgba(130, 35, 173, 0.1), 0 2px 15px 0 rgba(112, 51, 191, 0.14);
+    transition: box-shadow 0.3s cubic-bezier(.4, 0, .2, 1);
 }
 
-.bottom-port:hover{
+.bottom-port:hover {
     color: #8e1dda;
+    box-shadow: 0 0 40px 0 rgba(130, 35, 173, 0.24), 0 6px 25px 0 rgba(112, 51, 191, 0.23);
 }
+
 .carousel-container {
     scroll-snap-type: x mandatory;
 }
 
-/* Estilização dos slides do carrossel com box-shadow e transição */
 .carousel-slide {
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.6s ease-out forwards;
-    transition: all 0.3s ease-in-out; /* Adicionado transição */
+    transform: translateY(30px) scale(0.98);
+    animation: fadeInUpShadow 0.6s ease-out forwards;
+    transition: all 0.3s ease-in-out;
+    scroll-snap-align: center;
 }
 
-.carousel-slide:nth-child(2) { animation-delay: 0.1s; }
-.carousel-slide:nth-child(3) { animation-delay: 0.2s; }
-.carousel-slide:nth-child(4) { animation-delay: 0.3s; }
+.carousel-slide:nth-child(2) {
+    animation-delay: 0.1s;
+}
 
-@keyframes fadeInUp {
-    to {
+.carousel-slide:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.carousel-slide:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUpShadow {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        box-shadow: 0 0 0 0 rgba(148, 0, 211, 0);
+    }
+
+    70% {
+        box-shadow: 0 16px 38px 0 rgba(144, 57, 243, 0.31);
+    }
+
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
+        box-shadow: 0 8px 14px 0 rgba(144, 57, 243, 0.19);
     }
 }
 
-.carousel-slide {
-    scroll-snap-align: center;
-}
-  
-/* Efeito de box-shadow ao passar o mouse */
 .carousel-slide:hover {
     box-shadow: 0 10px 20px rgba(144, 57, 243, 0.801);
     transform: scale(1.03);
@@ -116,12 +122,12 @@ body {
 .design-card {
     transition: all 0.3s ease;
 }
-    
+
 .design-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 25px -5px rgba(144, 57, 243, 0.801), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
-    
+
 .footer-link {
     position: relative;
 }
@@ -136,8 +142,178 @@ body {
     background-color: white;
     transition: width 0.4s ease;
 }
-    
+
 .footer-link:hover::after {
     width: 100%;
 }
 
+/* Animação do texto na hero */
+.frase-text {
+    animation: text-fade-slide 1.4s cubic-bezier(.4, 0, .2, 1);
+}
+
+@keyframes text-fade-slide {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.particles-art {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 999px;
+    opacity: 0.8;
+    mix-blend-mode: screen;
+    animation: floating-particle 14s infinite cubic-bezier(.4, 0, .2, 1);
+}
+
+/* Bolinhas adicionais */
+.particle-1 {
+    background: linear-gradient(135deg, #82faff 40%, #6a28c9 100%);
+    width: 60px;
+    height: 60px;
+    top: 22%;
+    left: 12%;
+    animation-delay: 0s;
+}
+
+.particle-2 {
+    background: linear-gradient(135deg, #ff80a3 20%, #3a69a7 90%);
+    width: 40px;
+    height: 40px;
+    top: 58%;
+    left: 34%;
+    animation-delay: 2s;
+}
+
+.particle-3 {
+    background: linear-gradient(135deg, #ffd660 15%, #5d3eb3 85%);
+    width: 72px;
+    height: 72px;
+    top: 44%;
+    left: 73%;
+    animation-delay: 6s;
+}
+
+.particle-4 {
+    background: linear-gradient(135deg, #80ffbb 0%, #3a69a7 100%);
+    width: 40px;
+    height: 40px;
+    top: 12%;
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.particle-5 {
+    background: linear-gradient(135deg, #ff8f80 0%, #8e1dda 110%);
+    width: 30px;
+    height: 30px;
+    top: 78%;
+    left: 67%;
+    animation-delay: 8s;
+}
+
+/* Novas bolinhas agregadas */
+.particle-6 {
+    background: linear-gradient(135deg, #a1c4fd 30%, #c2e9fb 95%);
+    width: 50px;
+    height: 50px;
+    top: 30%;
+    left: 80%;
+    animation-delay: 1s;
+}
+
+.particle-7 {
+    background: linear-gradient(135deg, #fbc7a4 30%, #fe9a8b 95%);
+    width: 35px;
+    height: 35px;
+    top: 72%;
+    left: 25%;
+    animation-delay: 3.5s;
+}
+
+.particle-8 {
+    background: linear-gradient(135deg, #d4fc79 30%, #96e6a1 95%);
+    width: 45px;
+    height: 45px;
+    top: 15%;
+    left: 25%;
+    animation-delay: 6.5s;
+}
+
+.particle-9 {
+    background: linear-gradient(135deg, #fddb92 30%, #d1fdff 95%);
+    width: 28px;
+    height: 28px;
+    top: 55%;
+    left: 12%;
+    animation-delay: 8.5s;
+}
+
+.particle-10 {
+    background: linear-gradient(135deg, #fab1a0 30%, #ffd6e8 95%);
+    width: 25px;
+    height: 25px;
+    top: 5%;
+    left: 85%;
+    animation-delay: 5.5s;
+}
+
+@keyframes floating-particle {
+    0% {
+        transform: scale(0.9) translateY(0);
+        opacity: 0.8;
+    }
+    30% {
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.12) translateY(-18px);
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0.9) translateY(0);
+        opacity: 0.8;
+    }
+}
+
+
+/* Animação de pop para imagem modal */
+.img-pop {
+    animation: pop-img 0.4s cubic-bezier(.4, 0, .2, 1);
+}
+
+@keyframes pop-img {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.8;
+    }
+
+    80% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

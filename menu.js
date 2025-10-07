@@ -1,5 +1,5 @@
 // Mobile menu toggle
-document.getElementById('menu-btn').addEventListener('click', function() {
+document.getElementById('menu-btn').addEventListener('click', function () {
     const menu = document.getElementById('mobile-menu');
     menu.classList.toggle('hidden');
 });
@@ -108,17 +108,16 @@ function setupModalListeners() {
 function createCardHTML(design, isCarousel = false) {
     const card = document.createElement('div');
     const cardBaseClass = 'bg-white rounded-lg shadow-md overflow-hidden cursor-pointer flex flex-col';
-    
+
     if (isCarousel) {
         card.className = `carousel-slide flex-shrink-0 w-[320px] h-[450px] ${cardBaseClass}`;
     } else {
         card.className = `design-card w-full h-[450px] ${cardBaseClass}`;
     }
 
-    // Estrutura interna do card com alturas proporcionais
     card.innerHTML = `
         <div class="w-full h-[70%] flex items-center justify-center overflow-hidden p-2 flex-shrink-0">
-            <img src="${design.imageUrl}" alt="${design.altText}" class="max-w-full max-h-full object-contain rounded-lg">
+            <img src="${design.imageUrl}" alt="${design.altText}" class="max-w-full max-h-full object-contain rounded-lg" />
         </div>
         <div class="w-full h-[30%] p-4">
             <h3 class="font-semibold text-lg mb-2">${design.title}</h3>
@@ -132,10 +131,13 @@ function createCardHTML(design, isCarousel = false) {
         modalImage.src = design.imageUrl;
         modalImage.alt = design.altText;
         modal.classList.remove('hidden');
+        modalImage.classList.add('img-pop');
+        setTimeout(() => modalImage.classList.remove('img-pop'), 400);
     });
 
     return card;
 }
+
 function initPortfolio() {
     const carouselContainer = document.getElementById('design-carousel');
     const staticGridContainer = document.getElementById('static-cards-grid');
@@ -151,10 +153,16 @@ function initPortfolio() {
     const prevBtn = document.querySelector('.carousel-prev');
     const nextBtn = document.querySelector('.carousel-next');
     prevBtn.addEventListener('click', () => {
-        carouselContainer.scrollBy({ left: -300, behavior: 'smooth' });
+        carouselContainer.scrollBy({
+            left: -300,
+            behavior: 'smooth'
+        });
     });
     nextBtn.addEventListener('click', () => {
-        carouselContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        carouselContainer.scrollBy({
+            left: 300,
+            behavior: 'smooth'
+        });
     });
 }
 
